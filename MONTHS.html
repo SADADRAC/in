@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SADA Programs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f9fafb;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .month-card {
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .month-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      background-color: #1e293b;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div class="max-w-5xl w-full text-center py-12">
+    <h1 class="text-4xl font-extrabold text-yellow-400 mb-10 drop-shadow">SADA Programs<br><span class="text-sm font-medium text-gray-300">Conducted Events | April 2025 - April 2026</span></h1>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <a href="programs/apr-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">April 2025</a>
+      <a href="programs/may-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">May 2025</a>
+      <a href="programs/jun-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">June 2025</a>
+      <a href="programs/jul-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">July 2025</a>
+      <a href="programs/aug-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">August 2025</a>
+      <a href="programs/sep-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">September 2025</a>
+      <a href="programs/oct-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">October 2025</a>
+      <a href="programs/nov-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">November 2025</a>
+      <a href="programs/dec-2025.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">December 2025</a>
+      <a href="programs/jan-2026.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">January 2026</a>
+      <a href="programs/feb-2026.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">February 2026</a>
+      <a href="programs/mar-2026.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold">March 2026</a>
+    </div>
+
+    <!-- Centered April 2026 Card -->
+    <div class="flex justify-center mt-6">
+      <a href="programs/apr-2026.html" class="month-card glass p-6 rounded-xl text-yellow-300 font-semibold w-48">April 2026</a>
+    </div>
+  </div>
+</body>
+
+</html>
