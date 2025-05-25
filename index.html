@@ -103,11 +103,78 @@
 </div>
 
 
+ <!-- Gallery Section with Slideshow -->
+  <section class="py-12 px-6 bg-gray-800 fade-in" id="box">
+    
+    <div class="max-w-3xl mx-auto text-center">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-6">Gallery</h3>
+      <div class="relative w-full max-w-xl mx-auto">
+        <div id="gallery-image" class="w-full h-64 bg-gray-700 flex items-center justify-center text-yellow-300 text-2xl font-bold rounded-lg">
+          Photo 1
+        </div>
+        <button onclick="prevImage()" class="absolute left-0 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-yellow-400 text-gray-800 rounded-l-md">&#8592;</button>
+        <button onclick="nextImage()" class="absolute right-0 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-yellow-400 text-gray-800 rounded-r-md">&#8594;</button>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-center py-5 text-gray-400 text-sm">
     &copy; 2025 SADA - Students Association of Daru-Rahma. All rights reserved.
   </footer>
+
+  <script>
+  const images = [
+    "images/img1.jpg",
+    "images/img2.jpg",
+    "images/img3.jpg",
+    "images/img4.jpg"
+  ];
+
+  let index = 0;
+  const imageBox = document.getElementById("gallery-image");
+
+  function showImage() {
+    imageBox.style.opacity = 0;
+    setTimeout(() => {
+      imageBox.innerHTML = `<img src="${images[index]}" class="w-full h-full object-cover rounded-lg" alt="Gallery Image">`;
+      imageBox.style.opacity = 1;
+    }, 300);
+  }
+
+  function nextImage() {
+    index = (index + 1) % images.length;
+    showImage();
+  }
+
+  function prevImage() {
+    index = (index - 1 + images.length) % images.length;
+    showImage();
+  }
+
+  // Animate sections
+  function revealElements() {
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      setTimeout(() => el.classList.add("visible"), 200 * i);
+    });
+  }
+
+  // Loader removal
+  document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+      loader.style.transition = "opacity 1s ease";
+      loader.style.opacity = 0;
+      setTimeout(() => {
+        loader.remove();
+        document.body.style.overflow = "auto";
+        revealElements();
+        showImage(); // Show the first image once loaded
+      }, 1000);
+    }, 1000);
+  });
+</script>
+
 
 </body>
 
