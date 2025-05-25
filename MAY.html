@@ -415,74 +415,116 @@ THEIR SKILLS.</p>
 <!--ENDDDD-->
 
   </section>
+<!-- Gallery Section with Slideshow -->
   <!-- Gallery Section with Slideshow -->
-  <section class="py-12 px-6 bg-gray-800 fade-in">
-    <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-2xl font-bold text-yellow-400 mb-6">Gallery</h3>
-      <div class="relative w-full max-w-xl mx-auto">
-        <div id="gallery-image" class="w-full h-64 bg-gray-700 flex items-center justify-center text-yellow-300 text-2xl font-bold rounded-lg">
-          Photo 1
-        </div>
-        <button onclick="prevImage()" class="absolute left-0 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-yellow-400 text-gray-800 rounded-l-md">&#8592;</button>
-        <button onclick="nextImage()" class="absolute right-0 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-yellow-400 text-gray-800 rounded-r-md">&#8594;</button>
-      </div>
+<section class="py-12 bg-gray-800 fade-in">
+  <h3 class="text-3xl font-bold text-yellow-400 mb-8 text-center">Gallery</h3>
+  
+  <div class="relative w-screen overflow-hidden bg-gray-900 shadow-2xl" style="height: 600px;">
+    <div id="gallery-image-wrapper" class="flex h-full transition-transform duration-500 ease-in-out">
+      <!-- Images will be injected here -->
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-center py-5 text-gray-400 text-sm">
-    &copy; 2025 SADA MAY - PROGRAM HIGHLIGHTS, IMAGE GALLERY.
-  </footer>
+    <!-- Navigation Buttons -->
+    <button onclick="prevImage()" 
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 px-6 py-3 bg-yellow-400 text-gray-900 rounded-full z-10 text-3xl shadow-md hover:bg-yellow-300">
+      &#8592;
+    </button>
+    <button onclick="nextImage()" 
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 px-6 py-3 bg-yellow-400 text-gray-900 rounded-full z-10 text-3xl shadow-md hover:bg-yellow-300">
+      &#8594;
+    </button>
+  </div>
+</section>
 
-  <script>
+<!-- Footer -->
+<footer class="bg-gray-800 text-center py-5 text-gray-400 text-sm">
+  &copy; 2025 SADA MAY - PROGRAM HIGHLIGHTS, IMAGE GALLERY.
+</footer>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #gallery-image-wrapper img {
+    user-select: none;
+    pointer-events: none;
+    flex-shrink: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
   const images = [
-    "images/img1.jpg",
-    "images/img2.jpg",
-    "images/img3.jpg",
-    "images/img4.jpg"
+    "111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
+    "116.jpg", "117.jpg", "118.jpg", "119.jpg", "120.jpg", "121.jpg", "122.jpg", "123.jpg", "124.jpg", "125.jpg"
   ];
 
   let index = 0;
-  const imageBox = document.getElementById("gallery-image");
+  const wrapper = document.getElementById("gallery-image-wrapper");
 
-  function showImage() {
-    imageBox.style.opacity = 0;
-    setTimeout(() => {
-      imageBox.innerHTML = `<img src="${images[index]}" class="w-full h-full object-cover rounded-lg" alt="Gallery Image">`;
-      imageBox.style.opacity = 1;
-    }, 300);
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  function renderImages() {
+    wrapper.innerHTML = images.map(src => `
+      <img src="${src}" alt="Gallery Image">
+    `).join('');
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const offset = -index * window.innerWidth;
+    wrapper.style.transform = `translateX(${offset}px)`;
   }
 
   function nextImage() {
     index = (index + 1) % images.length;
-    showImage();
+    updateSlider();
   }
 
   function prevImage() {
     index = (index - 1 + images.length) % images.length;
-    showImage();
+    updateSlider();
   }
 
-  // Animate sections
   function revealElements() {
     document.querySelectorAll('.fade-in').forEach((el, i) => {
       setTimeout(() => el.classList.add("visible"), 200 * i);
     });
   }
 
-  // Loader removal
+  window.addEventListener("resize", updateSlider);
+
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loader");
-    setTimeout(() => {
-      loader.style.transition = "opacity 1s ease";
-      loader.style.opacity = 0;
+    if (loader) {
       setTimeout(() => {
-        loader.remove();
-        document.body.style.overflow = "auto";
-        revealElements();
-        showImage(); // Show the first image once loaded
+        loader.style.transition = "opacity 1s ease";
+        loader.style.opacity = 0;
+        setTimeout(() => {
+          loader.remove();
+          document.body.style.overflow = "auto";
+          revealElements();
+          renderImages();
+        }, 1000);
       }, 1000);
-    }, 1000);
+    } else {
+      revealElements();
+      renderImages();
+    }
   });
 </script>
 
@@ -490,6 +532,7 @@ THEIR SKILLS.</p>
   <footer class="bg-gray-100 text-center py-6 border-t mt-16">
     <p class="text-gray-600">&copy; 2025 SADA - Students Association of Daru-Rahma. All rights reserved.</p>
   </footer>
+  
 </body>
 
 </html>
