@@ -7,6 +7,7 @@
   <title>SADA - Students Association</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
@@ -16,7 +17,6 @@
       font-family: 'Inter', sans-serif;
       background-color: #111827;
       color: #f9fafb;
-      overflow: hidden;
     }
 
     .fade-in {
@@ -43,124 +43,134 @@
     .logo-placeholder:hover {
       transform: scale(1.05);
     }
-
-    #gallery-image {
-      transition: opacity 0.5s ease-in-out;
-    }
   </style>
 </head>
 
 <body>
   <!-- Loading Animation -->
-  <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
-    <div class="text-yellow-400 text-2xl font-bold animate-pulse">ENTERING SADA...</div>
-  </div>
+<div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+  <div class="text-yellow-400 text-2xl font-bold animate-pulse">ENTERING SADA...</div>
+</div>
 
-<!-- Hero Section -->
-<section class="h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
-  <a href="WE.png" target="_blank"
-     class="w-40 h-40 flex items-center justify-center rounded-full mb-8 border-4 border-dashed border-yellow-400 bg-white overflow-hidden">
-    <img src="WE.png" alt="Logo" class="w-full h-full object-contain" />
-  </a>
-  <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-yellow-400">SADA</h1>
-  <p class="mt-4 text-xl md:text-2xl text-gray-300">Students Association of Daru-Rahma Arabic College</p>
-</section>
+  <!-- Toggle Button -->
+  <button id="sidebarToggle" class="fixed top-4 left-4 z-50 bg-yellow-400 text-gray-900 p-2 rounded-full shadow-lg hover:bg-yellow-300 transition">
+    <span class="material-icons">menu</span>
+  </button>
 
-  <!-- About Section -->
-  <section class="py-20 px-6 bg-gray-900 fade-in">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-yellow-400 mb-6">A Community of Vision</h2>
-      <p class="text-lg leading-relaxed text-gray-300">
-        SADA is where students grow together—through leadership, unity, and purpose. It's not just an association—it's a legacy in the making.
-      </p>
+  <!-- Sidebar as overlay -->
+  <aside id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-gray-900 text-white transform -translate-x-full transition-transform duration-300 z-40">
+    <div class="flex items-center justify-between p-6 border-b border-gray-700">
+      <div class="font-bold text-xl text-yellow-400">Dashboard</div>
+      <button id="sidebarClose" class="text-gray-400 hover:text-white">
+        <span class="material-icons">close</span>
+      </button>
     </div>
-  </section>
-  <style>
-  .fade-in-delay {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 2s;
-  }
+    <nav class="mt-6 space-y-2">
+      <a href="home.html" class="flex items-center px-6 py-3 hover:bg-gray-700">
+        <span class="material-icons mr-3">home</span> HOME
+      </a>
+      <a href="statistics.html" class="flex items-center px-6 py-3 hover:bg-gray-700">
+        <span class="material-icons mr-3">bar_chart</span> STATISTICS
+      </a>
+      <a href="about.html" class="flex items-center px-6 py-3 hover:bg-gray-700">
+        <span class="material-icons mr-3">info</span> ABOUT US
+      </a>
+    </nav>
+  </aside>
 
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-</style>
+  <!-- Main content -->
+  <main class="flex-1 overflow-y-auto bg-gray-800 min-h-screen">
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+      <a href="WE.png" target="_blank" class="w-40 h-40 flex items-center justify-center rounded-full mb-8 border-4 border-dashed border-yellow-400 bg-white overflow-hidden">
+        <img src="WE.png" alt="Logo" class="w-full h-full object-contain" />
+      </a>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-yellow-400">SADA</h1>
+      <p class="mt-4 text-xl md:text-2xl text-gray-300">Students Association of Daru-Rahma Arabic College</p>
+    </section>
 
-<div class="flex justify-center mt-8">
-  <a href="MONTHS.html"
-     class="fade-in-delay px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 ease-in-out">
-    View SADA 2025-26 Programs
-  </a>
-</div>
-<div style="margin-bottom: 20px;"></div>
-<div style="margin-bottom: 20px;"></div>
-<div></div>
+    <!-- About Section -->
+    <section class="py-20 px-6 bg-gray-900 fade-in">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">A Community of Vision</h2>
+        <p class="text-lg leading-relaxed text-gray-300">
+          SADA is where students grow together—through leadership, unity, and purpose. It's not just an association—it's a legacy in the making.
+        </p>
+      </div>
+    </section>
 
-<div>
-</div>
+    <div class="flex justify-center mt-8">
+      <a href="MONTHS.html" class="fade-in-delay px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-xl shadow-lg hover:bg-yellow-300 transition duration-300 ease-in-out">
+        View SADA 2025-26 Programs
+      </a>
+    </div>
 
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-center py-5 text-gray-400 text-sm">
-    &copy; 2025 SADA - Students Association of Daru-Rahma. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-center py-5 text-gray-400 text-sm mt-10">
+      &copy; 2025 SADA - Students Association of Daru-Rahma. All rights reserved.
+    </footer>
+  </main>
 
   <script>
-  const images = [
-    "images/img1.jpg",
-    "images/img2.jpg",
-    "images/img3.jpg",
-    "images/img4.jpg"
-  ];
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('sidebarToggle');
+    const closeButton = document.getElementById('sidebarClose');
 
-  let index = 0;
-  const imageBox = document.getElementById("gallery-image");
-
-  function showImage() {
-    imageBox.style.opacity = 0;
-    setTimeout(() => {
-      imageBox.innerHTML = `<img src="${images[index]}" class="w-full h-full object-cover rounded-lg" alt="Gallery Image">`;
-      imageBox.style.opacity = 1;
-    }, 300);
-  }
-
-  function nextImage() {
-    index = (index + 1) % images.length;
-    showImage();
-  }
-
-  function prevImage() {
-    index = (index - 1 + images.length) % images.length;
-    showImage();
-  }
-
-  // Animate sections
-  function revealElements() {
-    document.querySelectorAll('.fade-in').forEach((el, i) => {
-      setTimeout(() => el.classList.add("visible"), 200 * i);
+    toggleButton.addEventListener('click', () => {
+      sidebar.classList.remove('-translate-x-full');
+      toggleButton.style.display = 'none';
     });
-  }
 
-  // Loader removal
-  document.addEventListener("DOMContentLoaded", () => {
-    const loader = document.getElementById("loader");
-    setTimeout(() => {
-      loader.style.transition = "opacity 1s ease";
-      loader.style.opacity = 0;
+    closeButton.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      toggleButton.style.display = 'block';
+    });
+
+    const images = ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg", "images/img4.jpg"];
+    let index = 0;
+    const imageBox = document.getElementById("gallery-image");
+
+    function showImage() {
+      imageBox.style.opacity = 0;
       setTimeout(() => {
-        loader.remove();
-        document.body.style.overflow = "auto";
-        revealElements();
-        showImage(); // Show the first image once loaded
-      }, 1000);
+        imageBox.innerHTML = `<img src="${images[index]}" class="w-full h-full object-cover rounded-lg" alt="Gallery Image">`;
+        imageBox.style.opacity = 1;
+      }, 300);
+    }
+
+    function nextImage() {
+      index = (index + 1) % images.length;
+      showImage();
+    }
+
+    function prevImage() {
+      index = (index - 1 + images.length) % images.length;
+      showImage();
+    }
+
+    function revealElements() {
+      document.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add("visible"), 200 * i);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      revealElements();
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.style.transition = "opacity 1s ease";
+    loader.style.opacity = 0;
+    setTimeout(() => {
+      loader.remove();
+      document.body.style.overflow = "auto";
+      revealElements();
     }, 1000);
-  });
-</script>
+  }, 1000);
+});
 
-
+  </script>
 </body>
 
 </html>
