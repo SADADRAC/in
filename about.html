@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SADA DRAC | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --highlight-color: #ffd700;
+      --text-color: #ffffff;
+      --box-bg: rgba(10, 17, 36, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      color: var(--text-color);
+    }
+
+    body {
+      background: linear-gradient(-45deg, #0a1124, #1f1c2c, #ffd700, #0a1124);
+      background-size: 500% 500%;
+      animation: moveBG 10s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @keyframes moveBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .content {
+      background: var(--box-bg);
+      padding: 50px 30px;
+      border-radius: 20px;
+      max-width: 650px;
+      width: 90%;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: var(--highlight-color);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+    }
+
+    .contact {
+      margin-top: 30px;
+    }
+
+    .contact a {
+      color: var(--highlight-color);
+      font-weight: 600;
+      font-size: 1.15rem;
+      display: block;
+      margin: 12px 0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact a:hover {
+      text-shadow: 0 0 10px var(--highlight-color);
+    }
+
+    @media (max-width: 500px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .contact a {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>SADA DRAC</h1>
+    <p>
+      <strong>SADA DRAC KODAKKAL</strong> is a vibrant student movement built on creativity, culture, and community.  
+      We believe in bold expression and empowering young voices to shape the future.
+    </p>
+    <div class="contact">
+      <a href="https://www.instagram.com/sada_drac/" target="_blank">📸 Instagram: @sada_drac</a>
+      <a href="mailto:sadadrac@gmail.com">📧 Email: sadadrac@gmail.com</a>
+    </div>
+  </div>
+</body>
+</html>
